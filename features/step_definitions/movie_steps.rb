@@ -38,3 +38,9 @@ When /I (un)?check the following ratings: (.*)/ do |uncheck, rating_list|
   #   "When I uncheck..." steps in lines 89-95 of web_steps.rb
   
 end
+
+Then /I should see all of the movies/ do
+
+  rows = page.all('#movies tr').size 
+  rows.should == Movie.count()
+end
